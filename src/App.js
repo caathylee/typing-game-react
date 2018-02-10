@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TestComponent from './components/TestComponent';
+import TextExcerpt from './components/TextExcerpt';
 export class App extends Component {
     render() {
         return (
@@ -7,7 +7,7 @@ export class App extends Component {
                 <h1>Hello <span>World</span></h1>
                 <p>This React template is set up with Yarn, Babel, Webpack, and SASS.</p>
 
-                <TestComponent />
+                <TextExcerpt />
             </div>
         );
     }
