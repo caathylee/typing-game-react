@@ -10,15 +10,15 @@ module.exports = {
    },
    module: {
       rules: [
-      	 {
-             test: /\.js/,
+    	  {
+             test: /\.js?$/,
              use: {
                 loader: 'babel-loader',
-                options: { presets: ['react', 'es2015'] }
+                options: { presets: ['react', 'es2015'] } 
              }
          },
          {
-             test: /\.jsx/,
+             test: /\.jsx?$/,
              use: {
                 loader: 'babel-loader',
                 options: { presets: ['react', 'es2015'] }

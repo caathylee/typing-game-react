@@ -1,19 +1,29 @@
 import React from 'react';
+const data = require('./../blurbs.json');
 
+console.log(data);
+console.log(data.blurbs[0].title);
 class TextExcerpt extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			data: data.blurbs
+		}
+	}
 	render() {
+		{console.log("text is " + this.state.data[0].title)}
 		return (
 			<div className="test-component">
-				<p>This is where the text will be from blurbs.json</p>
-
 				<h2>Text</h2>
-				{/*<p>{blurbs[0].title}</p>*/}
+				<h2>Text below is generated from blurbs.json</h2>
 
-				<h2>Image below is hardcoded.</h2>
-				<img className="book-cover" src="../images/little-women.jpg" />
+				{this.state.data.map((book, index) =>
+					<div className="book">
+						<p>{book.text}</p>
+					</div>
+				)}
 
-
-				<h2>Image below is generated from blurbs.json</h2>
+				
 			</div>
 		)
 	}
