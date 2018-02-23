@@ -1,13 +1,15 @@
 .app {
-	h1 {
-		color: blue;
-	}
-	span {
-		color: purple;
-	}
+	text-align: center;
 	p {
 		color: #666;
 	}
+}
+
+#splash-page {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+
 }
 
 .book-cover {
