@@ -12,35 +12,23 @@ class SplashPage extends React.Component {
 	}
 
 	startTimer() {
-		console.log("i've been clicked");
-		var buttonElement = document.getElementById('btn-countdown');
-		buttonElement.innerHTML ="Game begins in <span id='btn-seconds'>10</span> seconds.";
+		document.getElementById('btn-countdown').innerHTML ="Game begins in <span id='btn-seconds'>10</span> seconds.";
 
 		if(this.timer == 0) {
-			this.timer = setInterval( function() {
-				console.log("I'm in countdown function");
-				var seconds = this.state.seconds-1;
-				console.log("this is seconds " + seconds);
-				document.getElementById('btn-seconds').innerHTML = seconds;
-				this.setState({
-					seconds: seconds
-				})
-			}, 1000);
+			this.timer = setInterval(this.countDown, 1000);
 		}
 	}
 
 	countDown() {
-		console.log("I'm in countdown function");
 		var seconds = this.state.seconds-1;
-		console.log("this is seconds " + seconds);
 		document.getElementById('btn-seconds').innerHTML = seconds;
 		this.setState({
 			seconds: seconds
 		})
 
-		 if (seconds == 0) { 
-		      clearInterval(this.timer);
-		    }
+	 	if (seconds == 0) { 
+	      clearInterval(this.timer);
+	    }
 	}
 
 	render() {
