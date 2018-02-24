@@ -15,7 +15,7 @@ class TextExcerpt extends React.Component {
 				<h2>Text below is generated from blurbs.json</h2>
 
 				{this.state.data.map((book, index) =>
-					<div className="book">
+					<div className="book" key={index}>
 						<p>{book.text}</p>
 					</div>
 				)}

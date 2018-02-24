@@ -9,11 +9,12 @@ class SplashPage extends React.Component {
 		this.timer = 0;
 		this.startTimer = this.startTimer.bind(this);
 		this.countDown = this.countDown.bind(this);
+
+		console.log(this.props)
 	}
 
 	startTimer() {
 		document.getElementById('btn-countdown').innerHTML ="Game begins in <span id='btn-seconds'>10</span> seconds.";
-
 		if(this.timer == 0) {
 			this.timer = setInterval(this.countDown, 1000);
 		}
@@ -28,10 +29,15 @@ class SplashPage extends React.Component {
 
 	 	if (seconds == 0) { 
 	      clearInterval(this.timer);
+	      console.log("this is hideSplashPage " + this.props.splashPageIsHidden);
+
+	      //set hideSplashPage to true
+	      this.props.hideSplashPage();
 	    }
 	}
 
 	render() {
+		console.log("This is in SplashPage.js: " + this.props.splashPageIsHidden)
 		return (
 			<div id="splash-page">
 				<h1>React Typing <span>Game</span></h1>
