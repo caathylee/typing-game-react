@@ -18,7 +18,7 @@ class TextExcerpt extends React.Component {
 					</div>
 				}
 			
-				<input type="text" placeholder="Type here"/>
+				<input className="typing-field" type="text" placeholder="Type here" autoFocus/>
 			</div>
 		)
 	}

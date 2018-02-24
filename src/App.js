@@ -11,12 +11,10 @@ export class App extends Component {
 
 	showTextExcerpt() {
 		this.textIsHidden = false;
-		console.log("I am in App.js " + this.textIsHidden);
 		this.setState({});
 	}
 
     render() {
-    	console.log(this.showTextExcerpt)
         return (
             <div className="app">
             	<SplashPage showTextExcerpt={this.showTextExcerpt.bind(this)} />

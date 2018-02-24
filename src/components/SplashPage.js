@@ -5,13 +5,12 @@ class SplashPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			seconds: 10
+			seconds: 10,
+			btnIsHidden: false
 		}
 		this.timer = 0;
 		this.startTimer = this.startTimer.bind(this);
 		this.countDown = this.countDown.bind(this);
-
-		console.log(this.props)
 	}
 
 	startTimer() {
@@ -31,6 +30,9 @@ class SplashPage extends React.Component {
 
 	 	if (seconds == 0) { 
 	      clearInterval(this.timer);
+	      this.setState({
+			btnIsHidden: true
+	      });
 	    }
 	}
 
@@ -39,7 +41,8 @@ class SplashPage extends React.Component {
 			<div id="splash-page">
 				<h1>React Typing <span>Game</span></h1>
 				<p>Track your WPM with the typing game</p>
-                <button id="btn-countdown" className="btn" onClick={this.startTimer}>Ready to play?</button>
+				{!this.state.btnIsHidden ? <button id="btn-countdown" className="btn" onClick={this.startTimer}>Ready to play?</button> : null}
+                
 			</div>
 		)
 	}
