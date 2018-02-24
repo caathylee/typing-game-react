@@ -1,4 +1,5 @@
 import React from 'react';
+import TextExcerpt from './TextExcerpt';
 
 class SplashPage extends React.Component {
 	constructor(props) {
@@ -14,7 +15,8 @@ class SplashPage extends React.Component {
 	}
 
 	startTimer() {
-		document.getElementById('btn-countdown').innerHTML ="Game begins in <span id='btn-seconds'>10</span> seconds.";
+		this.props.showTextExcerpt();
+		document.getElementById('btn-countdown').innerHTML ="Game begins in <span id='btn-seconds'>10</span>";
 		if(this.timer == 0) {
 			this.timer = setInterval(this.countDown, 1000);
 		}
@@ -29,15 +31,10 @@ class SplashPage extends React.Component {
 
 	 	if (seconds == 0) { 
 	      clearInterval(this.timer);
-	      console.log("this is hideSplashPage " + this.props.splashPageIsHidden);
-
-	      //set hideSplashPage to true
-	      this.props.hideSplashPage();
 	    }
 	}
 
 	render() {
-		console.log("This is in SplashPage.js: " + this.props.splashPageIsHidden)
 		return (
 			<div id="splash-page">
 				<h1>React Typing <span>Game</span></h1>

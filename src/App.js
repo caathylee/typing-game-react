@@ -5,22 +5,22 @@ import SplashPage from './components/SplashPage';
 export class App extends Component {
 	constructor(props) {
 		super(props)
-		this.splashPageIsHidden = false;
-		this.hideSplashPage = this.hideSplashPage.bind(this);
+		this.textIsHidden = true;
+		this.showTextExcerpt = this.showTextExcerpt.bind(this);
 	}
 
-	hideSplashPage() {
-		this.splashPageIsHidden = true;
-		console.log(" in hideSplashPage function in App.js " + this.splashPageIsHidden);
+	showTextExcerpt() {
+		this.textIsHidden = false;
+		console.log("I am in App.js " + this.textIsHidden);
 		this.setState({});
 	}
 
     render() {
-    	console.log("this is it in App.js: " + this.splashPageIsHidden);
+    	console.log(this.showTextExcerpt)
         return (
             <div className="app">
-            	{!this.splashPageIsHidden ? <SplashPage splashPageIsHidden={this.splashPageIsHidden} hideSplashPage={this.hideSplashPage.bind(this)}/> : null }
-            	{this.splashPageIsHidden ? <TextExcerpt splashPageIsHidden={this.splashPageIsHidden} /> : null }
+            	<SplashPage showTextExcerpt={this.showTextExcerpt.bind(this)} />
+            	{!this.textIsHidden ? <TextExcerpt textIsHidden={this.textIsHidden} showTextExcerpt={this.showTextExcerpt.bind(this)}/> : null }
             </div>
         );
     }

@@ -9,18 +9,16 @@ class TextExcerpt extends React.Component {
 		}
 	}
 	render() {
+		var random = Math.floor(Math.random()*this.state.data.length);
 		return (
-			<div className="test-component">
-				<h2>Text</h2>
-				<h2>Text below is generated from blurbs.json</h2>
-
-				{this.state.data.map((book, index) =>
-					<div className="book" key={index}>
-						<p>{book.text}</p>
+			<div id="text-excerpt">
+				{
+					<div className="book">
+						<p>{this.state.data[random].text}</p>
 					</div>
-				)}
-
-				
+				}
+			
+				<input type="text" placeholder="Type here"/>
 			</div>
 		)
 	}
