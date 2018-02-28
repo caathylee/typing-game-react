@@ -7,7 +7,10 @@ class TextExcerpt extends React.Component {
 		this.state = {
 			data: data.blurbs,
 			timeElapsed: 0,
-			wpm: 0
+			wpm: "",
+			minutes: 0,
+			seconds: 0,
+			timeDisplayed: "00:00" 
 		}
 		this.startStopwatch = false;
 		this.pressedBackspace = false;
@@ -16,26 +19,39 @@ class TextExcerpt extends React.Component {
 		this.textArray = this.text.split(" ");
 		this.totalWords =  this.textArray.length;
 		this.index = 0;
-		this.wordCount = this.index+1;
+		this.wordCount = 0;
 		this.stopwatch;
+		
 		this.handleChange = this.handleChange.bind(this);
 		this.displayTimeElapsed = this.displayTimeElapsed.bind(this);
-
-		console.log("this is pressedBackspace " + this.state.pressedBackspace);
 	}
 
 	displayTimeElapsed() {
-		console.log("in timeElapsed function");
 		this.setState({
-			timeElapsed: this.state.timeElapsed+1
+			timeElapsed: this.state.timeElapsed+1,
+			seconds: ++this.state.seconds,
+			timeDisplayed: "0" + this.state.minutes + ":" + this.state.seconds 
 		});
 
-		console.log("this is timeElapsed: " + this.state.timeElapsed);
-		//calculate wpm after each second
+		if(this.wordCount>0) {
+			this.setState({
+				wpm: Math.floor(this.wordCount*(60/this.state.timeElapsed))
+			});
+			
+		}
 
+		if(this.state.timeElapsed >=60) {
+			this.setState({
+				minutes: this.state.minutes++,
+				seconds: 0
+			})
+		}
+		if(this.state.seconds<10) {
+			this.setState({
+				timeDisplayed: 0 + this.state.minutes + ":0" + this.state.seconds
+			});
+		}
 
-
-		//calculate wpm after each word
 	}
 
 	handleChange() {
@@ -53,20 +69,13 @@ class TextExcerpt extends React.Component {
 		var currentLetter= typingFieldValue.slice(-1);
 		var lastWord = this.index >= this.textArray.length-1;
 
-		console.log("currentWord: " + currentWord);
-		console.log("currentLetter: " + currentLetter);
-
 		if (typingFieldValue == (lastWord ? currentWord : currentWord + " ")) {
 			this.letterIndex = 0;
 			this.index++;
+			this.wordCount++;
 			document.getElementById('typing-field').value = "";
 
-			this.setState({
-				wpm: Math.floor(((this.index + 1)*60)/this.state.timeElapsed)
-			});
-
 			if (lastWord) {
-				// do something here. we finished typing everything
 				clearInterval(this.stopwatch);
 			}
 		}
@@ -120,9 +129,8 @@ class TextExcerpt extends React.Component {
 					</div>
 				
 				<input id="typing-field" type="text" placeholder="Type here" autoFocus onChange={this.handleChange}/>
-				<p id="time-elapsed">Time Elapsed: {this.state.timeElapsed} seconds</p>
+				<p id="time-elapsed">Time Elapsed: {this.state.timeDisplayed}</p>
 				<p>WPM: {this.state.wpm}</p>
-				<p>Total Words: {this.totalWords}</p>
 			</div>
 		)
 	}
