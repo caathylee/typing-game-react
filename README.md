@@ -1,9 +1,8 @@
 # Cathy's React Typing Game
+This is a typing game created with React, Webpack, SASS
 
-## Play the game
-```
-https://react-typing-game.herokuapp.com/
-```
+## Quick Start
+Try the game: [https://react-typing-game.herokuapp.com/](https://react-typing-game.herokuapp.com/).
 
 ## Installing
 ```
