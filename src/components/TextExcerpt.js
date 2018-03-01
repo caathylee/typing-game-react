@@ -88,7 +88,8 @@ class TextExcerpt extends React.Component {
 		var correct = paragraph.slice(0, this.index).join(" ");
 		if (this.index < this.textArray.length)
 			correct += " ";
-		var rest = this.index <= paragraph.length ? paragraph.slice(this.index+1).join(" ") : "";
+		var rest = this.index <= paragraph.length ? " " + paragraph.slice(this.index+1).join(" ") : "";
+
 
 		var word = paragraph[this.index];
 
@@ -112,7 +113,6 @@ class TextExcerpt extends React.Component {
 				incorrect = true;
 			}
 		}
-		letterRest += " ";
 
 		return (
 			<div id="text-excerpt">

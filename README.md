@@ -1,5 +1,9 @@
-# React Boilerplate
-Custom React setup with Webpack, Yarn, Babel, and SASS. Compartmentalized SASS partials and Components.
+# Cathy's React Typing Game
+
+## Play the game
+```
+https://react-typing-game.herokuapp.com/
+```
 
 ## Installing
 ```
