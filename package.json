@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack -p",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline",
+    "start": "node ./src/index.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
