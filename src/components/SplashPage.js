@@ -1,5 +1,6 @@
 import React from 'react';
 import TextExcerpt from './TextExcerpt';
+import ScoreboardForm from './ScoreboardForm';
 
 class SplashPage extends React.Component {
 	constructor(props) {
@@ -45,7 +46,7 @@ class SplashPage extends React.Component {
 			<div id="splash-page">
 				{this.state.disclaimerIsHidden ? "" : <p className="disclaimer">Track your WPM with this typing game</p>}
 				{!this.state.btnIsHidden ? <button id="btn-countdown" className="btn" onClick={this.startTimer}>Ready to play?</button> : null}
-                
+                <ScoreboardForm />
 			</div>
 		)
 	}

@@ -14,7 +14,7 @@ ul {
     transition: all 0.3s ease-out;
 }
 
-.btn {
+.btn, button, input[type=submit] {
 	@extend .transition;
 	background: $blue;
 	color: #fff;
@@ -58,6 +58,21 @@ ul {
 	.disclaimer {
 		font-size: 18px;
 		font-family: $typewriterFont;
+	}
+}
+
+.scoreboard-form {
+	
+	input[type=text] {
+		&:focus {
+			outline: none;
+		}
+	    margin-bottom: 20px;
+	    font-size: 18px;
+		border: none;
+		border-bottom: 1px solid #000;
+		padding: 10px;
+
 	}
 }
 
