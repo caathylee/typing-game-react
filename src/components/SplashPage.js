@@ -6,7 +6,8 @@ class SplashPage extends React.Component {
 		super(props);
 		this.state = {
 			seconds: 10,
-			btnIsHidden: false
+			btnIsHidden: false,
+			disclaimerIsHidden: false
 		}
 		this.timer = 0;
 		this.startTimer = this.startTimer.bind(this);
@@ -15,6 +16,9 @@ class SplashPage extends React.Component {
 
 	startTimer() {
 		this.props.showTextExcerpt();
+		this.setState({
+			disclaimerIsHidden: true
+		});
 		document.getElementById('btn-countdown').innerHTML ="Game begins in <span id='btn-seconds'>10</span>";
 		if(this.timer == 0) {
 			this.timer = setInterval(this.countDown, 1000);
@@ -39,8 +43,7 @@ class SplashPage extends React.Component {
 	render() {
 		return (
 			<div id="splash-page">
-				<h1>React Typing <span>Game</span></h1>
-				<p>Track your WPM with the typing game</p>
+				{this.state.disclaimerIsHidden ? "" : <p className="disclaimer">Track your WPM with this typing game</p>}
 				{!this.state.btnIsHidden ? <button id="btn-countdown" className="btn" onClick={this.startTimer}>Ready to play?</button> : null}
                 
 			</div>

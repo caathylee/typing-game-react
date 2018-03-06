@@ -1,0 +1,26 @@
+header {
+	background-color: $blue;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	h1 {
+		font-family: $typewriterFont;
+		color: #fff;
+		float: left;
+		padding-left: 30px;
+
+	}
+	ul {
+		float: right;
+		padding-right: 30px;
+		li {
+			display: inline-block;
+			padding: 5px 10px;
+		}
+		a {
+			color: #fff;
+		}
+	}
+}

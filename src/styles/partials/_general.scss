@@ -1,3 +1,11 @@
+ul {
+	li {
+		list-style-type: none;
+		a {
+			text-decoration: none;
+		}
+	}
+}
 .transition {
 	-webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -35,8 +43,21 @@
 		margin: auto;
 	}
 
+	#paragraph {
+		line-height: 1.8;
+		font-size: 18px;
+	}
+
 	#typing-field {
 		font-size: 22px;
+	}
+}
+
+#splash-page {
+	padding-top: 150px;
+	.disclaimer {
+		font-size: 18px;
+		font-family: $typewriterFont;
 	}
 }
 
