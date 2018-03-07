@@ -8,7 +8,11 @@ module.exports = {
    resolve: {
       extensions: ['.js', '.jsx']
    },
+   target: 'node',
    module: {
+      noParse: function (content) {
+        return /express/.test(content);
+      },
       rules: [
     	  {
              test: /\.js?$/,

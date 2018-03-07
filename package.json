@@ -33,6 +33,7 @@
     "css-loader": "^0.28.9",
     "foreman": "^2.0.0",
     "marked": "^0.3.17",
+    "mongodb": "^3.0.4",
     "mongoose": "^5.0.9",
     "node-sass": "^4.7.2",
     "nodemon": "^1.17.1",
